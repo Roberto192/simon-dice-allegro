@@ -5,7 +5,7 @@ int main(){
 
     cargar_allegro();
     start_game();
-
+    
     return 0;
 }
 

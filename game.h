@@ -2,7 +2,7 @@
 
 #include "main.h"
 
-#define FPS 6
+#define FPS 60
 #define WIDTH 1280
 #define HEIGHT 720
 

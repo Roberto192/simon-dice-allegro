@@ -45,6 +45,7 @@ int start_game(){
     al_register_event_source(event_queue, al_get_keyboard_event_source());
     al_register_event_source(event_queue, al_get_display_event_source(display));
     al_register_event_source(event_queue, al_get_timer_event_source(timer));
+    al_register_event_source(event_queue, al_get_mouse_event_source());
 
     al_start_timer(timer);
 
@@ -65,29 +66,38 @@ int start_game(){
                     if(ventana == 0)
                         ventana = 1;
 
+                if(event.keyboard.keycode == ALLEGRO_KEY_DOWN)
+                    if(ventana == 0){
+                        cambioDeBotones(ABAJO, &miMenu);
+                    }
+
+                if(event.keyboard.keycode == ALLEGRO_KEY_UP)
+                    if(ventana == 0){
+                        cambioDeBotones(ARRIBA, &miMenu);
+                    }
 
             }
 
         }
+        /*
+        if(event.type == ALLEGRO_EVENT_MOUSE_AXES)
+            printf("x:%d y:%d\n",event.mouse.x, event.mouse.y);*/
 
         if(al_is_event_queue_empty(event_queue)){
             if(repetir){
                 al_clear_to_color(al_map_rgb(0, 0, 0));
-                //al_draw_bitmap(, 0, 0, 0);
                 if(errores == 0){
                     al_draw_scaled_bitmap(al_load_bitmap("fondo.png"), 0, 0, 1600, 900, 0, 0, WIDTH, HEIGHT, 0);
                     if(ventana == 0){
 
+                        //Logo brille
                         miMenu.logo.y += miMenu.logo.tamy;
 
                         if(miMenu.logo.y > miMenu.logo.tamy * 5)
                             miMenu.logo.y = 0;
+                        //Fin de logo brille
 
-                        if(false){
-                            miMenu.play.img.y += miMenu.play.img.tamy + 12;
-                            if(miMenu.play.img.y > miMenu.play.img.tamy * 4)
-                                miMenu.play.img.y = 0;
-                        }
+                        botonAnimacion(&miMenu);
 
                         errores = menu(&miMenu);
                         //button = create_button(1,1,1,1,1);

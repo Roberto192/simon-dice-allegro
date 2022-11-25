@@ -19,7 +19,8 @@ typedef struct _timagen{
     int posy;
     float x;
     float y;
-    float scale;
+    float scalex;
+    float scaley;
     float _angle;
 }Timagen;
 
