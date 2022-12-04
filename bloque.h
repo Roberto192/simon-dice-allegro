@@ -1,17 +1,27 @@
 #ifndef BLOQUE_SIMON_DICE
 #define BLOQUE_SIMON_DICE
 
+
+#define MAX_BLOQUE 9
+
 #include "main.h"
+#include "configuracion.h"
+#include <stdlib.h>
+#include <math.h>
+
+#define COORD_X(x) ((140+84)*x)
+#define COORD_Y(y) ((140+84)*y)
 
 typedef struct _tbloque{
-
     Timagen imagenPrincipal;
-    Timagen imagenLetra;
     char letra;
     int status;
 
 }Tbloque;
 
-void dibujarBloque(Tbloque *bloque);
+void obtenerFomula(float *formulax, float *formulay, int n, int x, int w, int h);
+void play(Tbloque *bloques, int tam, float fx[], float fy[], int fTam);
+void obtenerBloques(ALLEGRO_BITMAP *sprites, Tbloque bloques[], int tam, Tconf *conf);
+bool handlePlayKeyboard(int event, Tconf *conf, char textGame[], int *i);
 
 #endif // BLOQUE_SIMON_DICE

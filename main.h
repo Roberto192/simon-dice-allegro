@@ -1,6 +1,11 @@
 #ifndef DEFINE_MAIN
 #define DEFINE_MAIN
 
+#define ESCENARIO_MENU 0
+#define ESCENARIO_PLAY 1
+#define ESCENARIO_RECORDS 2
+#define ESCENARIO_CONFIG 3
+
 #include <stdio.h>
 #include <allegro5/allegro5.h>
 #include <allegro5/allegro_image.h>

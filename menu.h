@@ -24,5 +24,6 @@ int menu(ObjetoMenu *objeto);
 int botonAnimacion(ObjetoMenu *objeto);
 int formatearDatos(Timagen *imagen);
 void cambioDeBotones(int tipo, ObjetoMenu *objeto);
+void handleMenuKeyboardDown(ObjetoMenu *objeto,  int *escenario, int event, ALLEGRO_TIMER *timer);
 
 #endif // MENU_SIMON_DICE

@@ -12,7 +12,6 @@ ObjetoMenu obtenerObjetoMenu(){
     int tamx_button = 503;
     int tamy_button = 89;
 
-
     botones = al_load_bitmap("botones_menu.png");
     //cargo de datos del logo
     logo = al_load_bitmap("simon_dice.png");
@@ -24,7 +23,7 @@ ObjetoMenu obtenerObjetoMenu(){
     objeto.logo._angle = 0;
     objeto.logo.x = 0;
     objeto.logo.y = 0;
-    objeto.logo.tamx = 865;
+    objeto.logo.tamx = 864;
     objeto.logo.tamy = 121;
 
     //cargo de datos del play
@@ -181,4 +180,25 @@ void cambioDeBotones(int tipo, ObjetoMenu *objeto){
             }
         }
     }
+}
+
+void handleMenuKeyboardDown(ObjetoMenu *objeto, int *escenario, int event, ALLEGRO_TIMER *timer){
+    if(event == ALLEGRO_KEY_ENTER){
+        if(objeto->play.press){
+            *escenario = ESCENARIO_PLAY;
+            al_start_timer(timer);
+        }else
+            if(objeto->records.press)
+                *escenario = ESCENARIO_RECORDS;
+            else
+                if(objeto->configs.press)
+                    *escenario = ESCENARIO_CONFIG;
+    }
+
+    if(event == ALLEGRO_KEY_DOWN)
+        cambioDeBotones(ABAJO, objeto);
+
+    if(event == ALLEGRO_KEY_UP)
+        cambioDeBotones(ARRIBA, objeto);
+
 }
