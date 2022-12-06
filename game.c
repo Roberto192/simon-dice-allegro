@@ -143,7 +143,7 @@ int start_game(){
         }
 
         if(event.type == ALLEGRO_EVENT_TIMER){
-            if(al_get_timer_count(timerSecond) >= FPS){
+            if(al_get_timer_count(timerSecond) >= FPS*1.5){
                 al_set_timer_count(timerSecond, 0);
                 if(textGame[k] != '\0'){
                     //printf("%s %c\n",textGame, textGame[k]);
