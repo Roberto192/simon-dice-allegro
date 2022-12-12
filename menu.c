@@ -102,11 +102,14 @@ int menu(ObjetoMenu *objeto){
 
 int botonAnimacion(ObjetoMenu *objeto){
 
+    float cont = 1.1;
+    float contx = 1.05;
+    float conty = 1.05;
 
     if(objeto->play.press){
-        objeto->play.img.scalex *= 1.05;
-        objeto->play.img.scaley *= 1.05;
-        if(objeto->play.img.scalex > objeto->play.img.tamx * 1.1){
+        objeto->play.img.scalex *= contx;
+        objeto->play.img.scaley *= conty;
+        if(objeto->play.img.scalex > objeto->play.img.tamx * cont){
             objeto->play.img.scalex = objeto->play.img.tamx;
             objeto->play.img.scaley = objeto->play.img.tamy;
         }
@@ -114,9 +117,9 @@ int botonAnimacion(ObjetoMenu *objeto){
     }
 
     if(objeto->records.press){
-        objeto->records.img.scalex *= 1.05;
-        objeto->records.img.scaley *= 1.05;
-        if(objeto->records.img.scalex > objeto->records.img.tamx * 1.1){
+        objeto->records.img.scalex *= contx;
+        objeto->records.img.scaley *= conty;
+        if(objeto->records.img.scalex > objeto->records.img.tamx * cont){
             objeto->records.img.scalex = objeto->records.img.tamx;
             objeto->records.img.scaley = objeto->records.img.tamy;
         }
@@ -124,9 +127,9 @@ int botonAnimacion(ObjetoMenu *objeto){
     }
 
     if(objeto->configs.press){
-        objeto->configs.img.scalex *= 1.05;
-        objeto->configs.img.scaley *= 1.05;
-        if(objeto->configs.img.scalex > objeto->configs.img.tamx * 1.1){
+        objeto->configs.img.scalex *= contx;
+        objeto->configs.img.scaley *= conty;
+        if(objeto->configs.img.scalex > objeto->configs.img.tamx * cont){
             objeto->configs.img.scalex = objeto->configs.img.tamx;
             objeto->configs.img.scaley = objeto->configs.img.tamy;
         }
@@ -136,11 +139,9 @@ int botonAnimacion(ObjetoMenu *objeto){
 }
 
 int formatearDatos(Timagen *imagen){
-
     imagen->scalex = imagen->tamx;
     imagen->scaley = imagen->tamy;
     imagen->posx = (1280/2) - (imagen->tamx/2);
-
 }
 
 void cambioDeBotones(int tipo, ObjetoMenu *objeto){

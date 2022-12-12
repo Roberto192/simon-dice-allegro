@@ -1,15 +1,18 @@
 #ifndef CONFIGURACION_SIMON_DICE
 #define CONFIGURACION_SIMON_DICE
 
-#include "configuracion.h"
+#include "main.h"
+#include "game.h"
 
-#define MAX_USER 5
 
 typedef struct _tconf{
-    unsigned char keys[MAX_BLOQUE];
-    unsigned char ascii[MAX_BLOQUE];
-    char usuario[MAX_USER];
+    unsigned char keys[10];
+    unsigned char ascii[10];
 }Tconf;
 
+#include "bloque.h"
+
+void configuracion(Tconf *conf);
+Tconf getConfigDeafault();
 
 #endif // CONFIGURACION_SIMON_DICE

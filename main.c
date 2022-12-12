@@ -1,11 +1,11 @@
 #include "main.h"
 #include "game.h"
 
-int main(){
+int main(int argc, char *argv[]){
 
     cargar_allegro();
     start_game();
-    
+
     return 0;
 }
 
@@ -23,5 +23,6 @@ int cargar_allegro(){
     al_init_ttf_addon();
     al_install_keyboard();
     al_install_mouse();
+    al_init_primitives_addon();
 
 }
